@@ -5,10 +5,11 @@ import win32com.client as win32
 
 outlook = win32.Dispatch('outlook.application')
 
-#access OR report for buyer emails
+#access OR report in order to pull buyer emails
 dfemails = pd.read_excel('Z:\Compliance Reporting Team\Over Received ERS\Automation\Over Received Automation - Test 12-16.xlsm', sheet_name= 'Buyer List') 
 buyer_names = dfemails["Buyer"].unique()
 
+#Loop through each buyer and generate an email to them
 for name in buyer_names:
     email = dfemails[dfemails["Buyer"] == name]['Email'].values[0] #query buyer's name
     buyer_path = '"Z:\\Compliance Reporting Team\\Over Received ERS\\Automation\data\\' + name + '.xlsx"' #define location of buyer's sheet
