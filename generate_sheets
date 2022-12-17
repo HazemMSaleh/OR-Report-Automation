@@ -1,5 +1,4 @@
 import pandas as pd
-
 # Read the data from the Excel file into a pandas DataFrame
 df = pd.read_excel('Z:\Compliance Reporting Team\Over Received ERS\Automation\Over Received Automation.xlsm', sheet_name= 'Paste sheet', converters={'Purchasing Document':str,'Purchasing Doc Item':str})
 
@@ -38,8 +37,8 @@ for name in buyer_names:
   #use a join to pull in comments from old_data into filtered_df on concat
     filtered_df = filtered_df.drop('Comments', axis = 1)
     filtered_df = filtered_df.merge(old_data, on= ['Concat'], how='left')
-  # Write the filtered DataFrame to a new Excel file with the name of the buyer
-    filtered_df = filtered_df.drop('Concat', axis = 1)
-    filtered_df.to_excel(buyer_path, index=False)
+  # Write the filtered DataFrame to a Excel file with the name of the buyer
+  
+  filtered_df = filtered_df.drop('Concat', axis = 1)
+  filtered_df.to_excel(buyer_path, index=False)
  
-   
