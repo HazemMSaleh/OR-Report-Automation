@@ -1,6 +1,6 @@
 import pandas as pd
 # Read the data from the Excel file into a pandas DataFrame
-df = pd.read_excel('Z:\Compliance Reporting Team\Over Received ERS\Automation\Over Received Automation.xlsm', sheet_name= 'Paste sheet', converters={'Purchasing Document':str,'Purchasing Doc Item':str})
+df = pd.read_excel('Z:\Compliance Reporting Team\Over Received ERS\Automation\Over Received Automation - Test 12-16.xlsm', sheet_name= 'Paste sheet', converters={'Purchasing Document':str,'Purchasing Doc Item':str})
 
 # Get a list of buyer names
 buyer_names = df['Name'].unique()
@@ -41,4 +41,6 @@ for name in buyer_names:
   
   filtered_df = filtered_df.drop('Concat', axis = 1)
   filtered_df.to_excel(buyer_path, index=False)
+ 
+   
  
